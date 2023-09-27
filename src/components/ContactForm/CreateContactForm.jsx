@@ -9,7 +9,7 @@ import {
 } from './CreateContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, addContactSlice } from 'redux/contactsSlice';
+import { addContactSlice } from 'redux/contactsSlice';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
