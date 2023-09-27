@@ -7,6 +7,9 @@ import {
   FieldInputStyle,
   FieldSubmitStyle,
 } from './CreateContactForm.styled';
+import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact, addContactSlice } from 'redux/contactsSlice';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -18,7 +21,24 @@ const SignupSchema = Yup.object().shape({
     .required('Enter a phone number'),
 });
 
-export const CreateContactForm = ({ addContact }) => {
+export const CreateContactForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts);
+
+  const addContact = contact => {
+    if (checkDuplicate(contact)) {
+      alert('the contact already exists');
+      return;
+    }
+    dispatch(addContactSlice({ id: nanoid(), ...contact }));
+  };
+
+  function checkDuplicate(contact) {
+    return contacts.some(
+      element => contact.name.toLowerCase() === element.name.toLowerCase()
+    );
+  }
+
   return (
     <Formik
       initialValues={{

@@ -1,14 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { InputSearchStyle, LabelSearchStyle } from './Filter.styled';
+import { changeFilter } from 'redux/filterSlice';
 
-export const Filter = ({ filterChange, filterText }) => {
+export const Filter = () => {
+  const filter = useSelector(state => state.filter);
+  const dispatch = useDispatch();
+
   return (
     <label>
       <LabelSearchStyle>Find contacts by name</LabelSearchStyle>
       <InputSearchStyle
         type="text"
         name="filter"
-        onChange={filterChange}
-        value={filterText}
+        onChange={e => dispatch(changeFilter(e.target.value))}
+        value={filter}
       />
     </label>
   );
