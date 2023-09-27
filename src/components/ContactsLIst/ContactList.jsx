@@ -2,7 +2,7 @@ import { Contact } from 'components/Contact/Contact';
 import { ContactListStyle } from './ContactList.styled';
 import { useSelector } from 'react-redux';
 
-export const ContactList = ({ deleteContact }) => {
+export const ContactList = () => {
   const filter = useSelector(store => store.filter);
   const contacts = useSelector(store => store.contacts);
 
