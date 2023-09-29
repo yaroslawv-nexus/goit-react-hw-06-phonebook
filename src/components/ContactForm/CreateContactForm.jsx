@@ -7,7 +7,7 @@ import {
   FieldInputStyle,
   FieldSubmitStyle,
 } from './CreateContactForm.styled';
-import { nanoid } from 'nanoid';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { addContactSlice } from 'redux/contactsSlice';
 
@@ -30,7 +30,7 @@ export const CreateContactForm = () => {
       alert('the contact already exists');
       return;
     }
-    dispatch(addContactSlice({ id: nanoid(), ...contact }));
+    dispatch(addContactSlice(contact));
   };
 
   function checkDuplicate(contact) {
