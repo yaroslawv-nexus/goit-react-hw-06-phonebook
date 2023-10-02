@@ -37,8 +37,8 @@ const persistConfig = {
 
 export const getContacts = state => state.contacts.contactsList; 
 
-export const contactsReducer = persistReducer(persistConfig, Slice.reducer)
+export const contactsReducer = persistReducer(persistConfig, slice.reducer)
 
-export const { addContactSlice, removeContactSlice } = Slice.actions;
+export const { addContactSlice, removeContactSlice } = slice.actions;
 
 
