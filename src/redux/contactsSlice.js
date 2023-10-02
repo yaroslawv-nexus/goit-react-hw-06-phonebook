@@ -8,7 +8,7 @@ const initialContacts =  [{ id: 'id-1', name: 'Test Contact', number: '459-12-56
     { id: 'id-2', name: 'Test Contact2', number: '459-12-567' }
   ];
 
-const Slice = createSlice({
+const slice = createSlice({
     name: "contacts",
     initialState: { contactsList: initialContacts},
     reducers: {
